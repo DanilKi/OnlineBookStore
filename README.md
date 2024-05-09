@@ -2,9 +2,7 @@
 A simple online bookstore written in Java using the Spring framework
 
 Project description
-We are going to implement an app for Online Book store. We will implement it step by step. 
 In this app we will have the following domain models (entities):
-
 User: Contains information about the registered user including their authentication details and personal information.
 Role: Represents the role of a user in the system, for example, admin or user.
 Book: Represents a book available in the store.
@@ -50,3 +48,53 @@ Things Managers Can Do:
    - Remove a section.
 3. Look at and change receipts:
    - Change the status of a receipt, like "Shipped" or "Delivered".
+
+
+Endpoints
+Book Endpoints:
+
+GET: /api/books (Retrieve book catalog)
+Example of response body:
+[
+{
+"id": 1,
+"title": "Sample Book 1",
+"author": "Author A",
+"isbn": "9781234567897",
+"price": 19.99,
+"description": "This is a sample book description.",
+"coverImage": "http://example.com/cover1.jpg"
+},
+{
+"id": 2,
+"title": "Sample Book 2",
+"author": "Author B",
+"isbn": "9789876543210",
+"price": 24.99,
+"description": "Another sample book description.",
+"coverImage": "http://example.com/cover2.jpg"
+}
+]
+
+GET: /api/books/{id} (Retrieve book details)
+Example of response body:
+{
+"id": 1,
+"title": "Sample Book 1",
+"author": "Author A",
+"isbn": "9781234567897",
+"price": 19.99,
+"description": "This is a sample book description.",
+"coverImage": "http://example.com/cover1.jpg"
+}
+
+POST: /api/books (Create a new book)
+Example of request body:
+{
+"title": "Sample Book 3",
+"author": "Author C",
+"isbn": "9781122334455",
+"price": 29.99,
+"description": "Yet another sample book description.",
+"coverImage": "http://example.com/cover3.jpg"
+}
