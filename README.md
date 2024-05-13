@@ -98,3 +98,16 @@ Example of request body:
 "description": "Yet another sample book description.",
 "coverImage": "http://example.com/cover3.jpg"
 }
+
+PUT: /api/books/{id} (Update a specific book)
+Example of request body:
+{
+"title": "Updated Title",
+"author": "Updated Author",
+"isbn": "978-1234567890",
+"price": 19.99,
+"description": "Updated description",
+"coverImage": "https://example.com/updated-cover-image.jpg"
+}
+
+DELETE /api/books/{id} (Delete a specific book)
