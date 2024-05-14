@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
-      id: create-book-table
+      id: create-books-table
       author: DanilKi
       changes:
         - createTable:
-            tableName: book
+            tableName: books
             columns:
               - column:
                   name: id
