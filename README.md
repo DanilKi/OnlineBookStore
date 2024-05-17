@@ -88,6 +88,10 @@ Example of response body:
 "coverImage": "http://example.com/cover1.jpg"
 }
 
+GET: /api/books/search (Filter book catalog)
+search?params:
+titles=[title1,titleN]&authors=[name2,nameN]&isbn=[%value%]&priceFrom=[decimal]$priceTo=[decimal]
+
 POST: /api/books (Create a new book)
 Example of request body:
 {
@@ -110,4 +114,4 @@ Example of request body:
 "coverImage": "https://example.com/updated-cover-image.jpg"
 }
 
-DELETE /api/books/{id} (Delete a specific book)
+DELETE: /api/books/{id} (Delete a specific book)
