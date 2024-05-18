@@ -90,7 +90,7 @@ Example of response body:
 
 GET: /api/books/search (Filter book catalog)
 search?params:
-titles=[title1,titleN]&authors=[name2,nameN]&isbn=[%value%]&priceFrom=[decimal]$priceTo=[decimal]
+titles=[title1,titleN]&authors=[name1,nameN]&isbn=[%value%]&priceFrom=[decimal]&priceTo=[decimal]
 
 POST: /api/books (Create a new book)
 Example of request body:

@@ -27,7 +27,7 @@ public class PriceSpecificationProvider implements SpecificationProvider<Book> {
                         new BigDecimal(priceFrom)));
             }
             if (priceTo != null && !priceTo.isBlank()) {
-                predicate = criteriaBuilder.and(predicate, criteriaBuilder.lt(root.get(KEY_FIELD),
+                predicate = criteriaBuilder.and(predicate, criteriaBuilder.le(root.get(KEY_FIELD),
                         new BigDecimal(priceTo)));
             }
             return predicate;
