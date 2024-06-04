@@ -1,8 +1,8 @@
 package com.onlinebookstore.service.impl;
 
-import com.onlinebookstore.dto.BookDto;
-import com.onlinebookstore.dto.BookSearchParametersDto;
-import com.onlinebookstore.dto.CreateBookRequestDto;
+import com.onlinebookstore.dto.book.BookDto;
+import com.onlinebookstore.dto.book.BookSearchParametersDto;
+import com.onlinebookstore.dto.book.CreateBookRequestDto;
 import com.onlinebookstore.mapper.BookMapper;
 import com.onlinebookstore.model.Book;
 import com.onlinebookstore.repository.book.BookRepository;
