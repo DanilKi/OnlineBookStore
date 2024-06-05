@@ -115,3 +115,24 @@ Example of request body:
 }
 
 DELETE: /api/books/{id} (Delete a specific book)
+
+User Endpoints:
+
+POST: /api/auth/register (User registration)
+Example of request body:
+{
+"email": "john.doe@example.com",
+"password": "securePassword123",
+"repeatPassword": "securePassword123",
+"firstName": "John",
+"lastName": "Doe",
+"shippingAddress": "123 Main St, City, Country"
+}
+Example of response body:
+{
+"id": 1,
+"email": "john.doe@example.com",
+"firstName": "John",
+"lastName": "Doe",
+"shippingAddress": "123 Main St, City, Country"
+}
