@@ -12,15 +12,16 @@ import lombok.Data;
 @FieldMatch(firstField = "password", secondField = "repeatPassword",
         message = "Both password fields must match")
 public class UserRegistrationRequestDto {
-    @NotEmpty @Email
+    @NotEmpty @Email @Size(max = 45)
     private String email;
-    @NotNull @Size(min = 8, max = 32)
+    @NotNull @Size(min = 8, max = 45)
     private String password;
-    @NotNull @Size(min = 8, max = 32)
+    @NotNull @Size(min = 8, max = 45)
     private String repeatPassword;
     @NotBlank @Size(max = 45)
     private String firstName;
     @NotBlank @Size(max = 45)
     private String lastName;
+    @Size(max = 255)
     private String shippingAddress;
 }
