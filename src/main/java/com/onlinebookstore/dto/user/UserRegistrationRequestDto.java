@@ -14,9 +14,9 @@ import lombok.Data;
 public class UserRegistrationRequestDto {
     @NotEmpty @Email @Size(max = 45)
     private String email;
-    @NotNull @Size(min = 8, max = 45)
+    @NotNull @Size(min = 8, max = 32)
     private String password;
-    @NotNull @Size(min = 8, max = 45)
+    @NotNull @Size(min = 8, max = 32)
     private String repeatPassword;
     @NotBlank @Size(max = 45)
     private String firstName;

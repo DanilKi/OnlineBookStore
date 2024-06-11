@@ -1,0 +1,113 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-users-roles-data
+      author: DanilKi
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: email
+                  value: admin@gmail.com
+              - column:
+                  name: password
+                  value: $2a$10$MEDmmuJUcftTyMJ9CI1xh.E9TeKjS1q7WR0..Q6WrOQtOwmsEId4S
+              - column:
+                  name: first_name
+                  value: John
+              - column:
+                  name: last_name
+                  value: Doe
+              - column:
+                  name: shipping_address
+                  value: 123, Main St, City, Country
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: email
+                  value: user1@gmail.com
+              - column:
+                  name: password
+                  value: $2a$10$z4zVHXJy/aRuwagX3/lf5eEOQi1omGpqmUjYqKcpnLWekbfz8cGsm
+              - column:
+                  name: first_name
+                  value: Bob
+              - column:
+                  name: last_name
+                  value: Bobson
+              - column:
+                  name: shipping_address
+                  value: 456, Master St, City, Country
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: email
+                  value: manager@gmail.com
+              - column:
+                  name: password
+                  value: $2a$10$KORny3Zig56HPj08n5P7/u7lu.8FFoD4Bj2KB8xS.x8TtmaVfoCEe
+              - column:
+                  name: first_name
+                  value: Mick
+              - column:
+                  name: last_name
+                  value: Mickaels
+              - column:
+                  name: shipping_address
+                  value: 789, Head St, City, Country
+        - insert:
+            tableName: roles
+            columns:
+              - column:
+                  name: name
+                  value: USER
+        - insert:
+            tableName: roles
+            columns:
+              - column:
+                  name: name
+                  value: ADMIN
+        - insert:
+            tableName: roles
+            columns:
+              - column:
+                  name: name
+                  value: MANAGER
+        - insert:
+            tableName: users_roles
+            columns:
+              - column:
+                  name: user_id
+                  valueComputed: (SELECT id FROM users WHERE email = 'admin@gmail.com')
+              - column:
+                  name: role_id
+                  valueComputed: (SELECT id FROM roles WHERE name = 'ADMIN')
+        - insert:
+            tableName: users_roles
+            columns:
+              - column:
+                  name: user_id
+                  valueComputed: (SELECT id FROM users WHERE email = 'admin@gmail.com')
+              - column:
+                  name: role_id
+                  valueComputed: (SELECT id FROM roles WHERE name = 'USER')
+        - insert:
+            tableName: users_roles
+            columns:
+              - column:
+                  name: user_id
+                  valueComputed: (SELECT id FROM users WHERE email = 'user1@gmail.com')
+              - column:
+                  name: role_id
+                  valueComputed: (SELECT id FROM roles WHERE name = 'USER')
+        - insert:
+            tableName: users_roles
+            columns:
+              - column:
+                  name: user_id
+                  valueComputed: (SELECT id FROM users WHERE email = 'manager@gmail.com')
+              - column:
+                  name: role_id
+                  valueComputed: (SELECT id FROM roles WHERE name = 'MANAGER')
