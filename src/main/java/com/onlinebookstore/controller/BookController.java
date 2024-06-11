@@ -37,7 +37,6 @@ public class BookController {
 
     @Operation(summary = "Get all books", description = "Get a list of all available books")
     @ApiResponse(responseCode = "200", description = "Operation successful")
-    @PreAuthorize("hasRole('USER')")
     @GetMapping
     public List<BookDto> getAll(@ParameterObject Pageable pageable) {
         return bookService.findAll(pageable);
@@ -51,7 +50,6 @@ public class BookController {
                         schema = @Schema(implementation = BookDto.class)) }),
         @ApiResponse(responseCode = "404", description = "The book was not found")
     })
-    @PreAuthorize("hasRole('USER')")
     @GetMapping("/{id}")
     public BookDto getBookById(@Parameter(description = "book identifier in DB", example = "1")
                                    @PathVariable Long id) {
@@ -102,7 +100,6 @@ public class BookController {
             @ApiResponse(responseCode = "200", description = "Search successful"),
             @ApiResponse(responseCode = "400", description = "Incorrect parameters")
     })
-    @PreAuthorize("hasRole('USER')")
     @GetMapping("/search")
     public List<BookDto> searchBooks(@ParameterObject
                                          @Valid BookSearchParametersDto searchParameters) {
