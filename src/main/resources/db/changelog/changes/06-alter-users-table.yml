@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: alter-users-table
+      author: DanilKi
+      changes:
+        - addColumn:
+            tableName: users
+            columns:
+              - column:
+                  name: is_deleted
+                  type: boolean
+                  defaultValueBoolean: false
+                  constraints:
+                    nullable: false
