@@ -16,6 +16,7 @@
 	<properties>
 		<java.version>17</java.version>
 		<hibernate.validator.version>8.0.1.Final</hibernate.validator.version>
+		<jjwt.version>0.12.5</jjwt.version>
 		<maven.checkstyle.plugin.configLocation>
 			checkstyle.xml
 		</maven.checkstyle.plugin.configLocation>
@@ -62,6 +63,24 @@
 			<groupId>org.liquibase</groupId>
 			<artifactId>liquibase-maven-plugin</artifactId>
 			<version>${liquibase.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>${jjwt.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<version>${jjwt.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-jackson</artifactId>
+			<version>${jjwt.version}</version>
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
