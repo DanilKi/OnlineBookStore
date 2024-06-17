@@ -12,6 +12,7 @@ databaseChangeLog:
               - column:
                   name: password
                   value: $2a$10$MEDmmuJUcftTyMJ9CI1xh.E9TeKjS1q7WR0..Q6WrOQtOwmsEId4S
+                  # admin1234
               - column:
                   name: first_name
                   value: John
@@ -30,6 +31,7 @@ databaseChangeLog:
               - column:
                   name: password
                   value: $2a$10$z4zVHXJy/aRuwagX3/lf5eEOQi1omGpqmUjYqKcpnLWekbfz8cGsm
+                  # user11234
               - column:
                   name: first_name
                   value: Bob
@@ -48,6 +50,7 @@ databaseChangeLog:
               - column:
                   name: password
                   value: $2a$10$KORny3Zig56HPj08n5P7/u7lu.8FFoD4Bj2KB8xS.x8TtmaVfoCEe
+                  # manager1234
               - column:
                   name: first_name
                   value: Mick

@@ -136,3 +136,14 @@ Example of response body:
 "lastName": "Doe",
 "shippingAddress": "123 Main St, City, Country"
 }
+
+POST: /api/auth/login (User authentication)
+Example of request body:
+{
+"email": "john.doe@example.com",
+"password": "securePassword123"
+}
+Example of response body:
+{
+"token": "eyJhbGciOiJJ9.eyJzdWIiOiIxMjM0yfQ.SflKssw5c"
+}
