@@ -4,6 +4,7 @@ import com.onlinebookstore.dto.book.BookSearchParametersDto;
 import com.onlinebookstore.model.Book;
 import com.onlinebookstore.repository.SpecificationBuilder;
 import com.onlinebookstore.repository.SpecificationProviderManager;
+import jakarta.persistence.criteria.JoinType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
@@ -39,8 +40,14 @@ public class BookSpecificationBuilder implements SpecificationBuilder<Book,
                     .getSpecification(new String[]{searchParameters.priceFrom(),
                                                     searchParameters.priceTo()}));
         }
-        spec = spec.and(specificationProviderManager.getSpecificationProvider(KEY_CATEGORIES)
-                .getSpecification(searchParameters.categories()));
+        if (searchParameters.categories() != null && searchParameters.categories().length > 0) {
+            spec = spec.and(specificationProviderManager.getSpecificationProvider(KEY_CATEGORIES)
+                    .getSpecification(searchParameters.categories()));
+        }
+        spec = spec.and((root, query, criteriaBuilder) -> {
+            root.fetch(KEY_CATEGORIES, JoinType.LEFT);
+            return criteriaBuilder.conjunction();
+        });
         return spec;
     }
 }
