@@ -147,3 +147,33 @@ Example of response body:
 {
 "token": "eyJhbGciOiJJ9.eyJzdWIiOiIxMjM0yfQ.SflKssw5c"
 }
+
+Category endpoints:
+
+POST: /api/categories (Create a new category)
+Example of request body:
+{
+"name": "Fiction",
+"description": "Fiction books"
+}
+
+GET: /api/categories (Retrieve all categories)
+Example of response body:
+{
+"id": 1,
+"name": "Fiction",
+"description": "Fiction books"
+}
+
+GET: /api/categories/{id} (Retrieve a specific category by its ID)
+
+PUT: /api/categories/{id} (Update a specific category)
+Example of request body:
+{
+"name": "Fiction",
+"description": "Fiction books"
+}
+
+DELETE: /api/categories/{id} (Delete a specific category)
+
+GET: /api/categories/{id}/books (Retrieve books by a specific category)

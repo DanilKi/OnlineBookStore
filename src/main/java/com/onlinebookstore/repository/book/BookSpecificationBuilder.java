@@ -16,6 +16,7 @@ public class BookSpecificationBuilder implements SpecificationBuilder<Book,
     private static final String KEY_AUTHOR = "author";
     private static final String KEY_ISBN = "isbn";
     private static final String KEY_PRICE = "price";
+    private static final String KEY_CATEGORIES = "categories";
     private final SpecificationProviderManager<Book> specificationProviderManager;
 
     @Override
@@ -38,6 +39,8 @@ public class BookSpecificationBuilder implements SpecificationBuilder<Book,
                     .getSpecification(new String[]{searchParameters.priceFrom(),
                                                     searchParameters.priceTo()}));
         }
+        spec = spec.and(specificationProviderManager.getSpecificationProvider(KEY_CATEGORIES)
+                .getSpecification(searchParameters.categories()));
         return spec;
     }
 }

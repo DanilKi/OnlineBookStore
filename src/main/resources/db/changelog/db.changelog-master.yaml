@@ -11,3 +11,7 @@ databaseChangeLog:
       file: /db/changelog/changes/05-insert-users-roles-data.yml
   - include:
       file: /db/changelog/changes/06-alter-users-table.yml
+  - include:
+      file: /db/changelog/changes/07-create-categories-table.yml
+  - include:
+      file: /db/changelog/changes/08-create-book-category-table.yml

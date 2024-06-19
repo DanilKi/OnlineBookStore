@@ -12,6 +12,7 @@ public record BookSearchParametersDto(
         @Digits(integer = 4, fraction = 2) @Positive
         String priceFrom,
         @Digits(integer = 4, fraction = 2) @Positive
-        String priceTo
+        String priceTo,
+        String[] categories
 ) {
 }

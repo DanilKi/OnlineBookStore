@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 import java.math.BigDecimal;
+import java.util.List;
 import lombok.Data;
 import org.hibernate.validator.constraints.ISBN;
 import org.hibernate.validator.constraints.URL;
@@ -24,4 +25,5 @@ public class CreateBookRequestDto {
     private String description;
     @URL
     private String coverImage;
+    private List<Long> categoryIds;
 }
