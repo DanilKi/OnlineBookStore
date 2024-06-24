@@ -1,5 +1,6 @@
 package com.onlinebookstore.exception;
 
+import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
@@ -54,9 +55,8 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
     }
 
     @ResponseStatus(HttpStatus.CONFLICT)
-    @ExceptionHandler(value = RegistrationException.class)
-    protected ResponseEntity<Object> handleRegistrationException(Exception ex,
-                                                                 WebRequest request) {
+    @ExceptionHandler(value = {RegistrationException.class, EntityExistsException.class})
+    protected ResponseEntity<Object> handleEntityExists(Exception ex, WebRequest request) {
         Map<String, Object> body = new LinkedHashMap<>();
         body.put(TIME_STAMP, LocalDateTime.now());
         body.put(HTTP_STATUS, HttpStatus.CONFLICT);
