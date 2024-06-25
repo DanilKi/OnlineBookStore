@@ -177,3 +177,41 @@ Example of request body:
 DELETE: /api/categories/{id} (Delete a specific category)
 
 GET: /api/categories/{id}/books (Retrieve books by a specific category)
+
+Shopping Cart Endpoints:
+
+GET: /api/cart (Retrieve user's shopping cart)
+Example of response body:
+{
+"id": 123,
+"userId": 456,
+"cartItems": [
+{
+"id": 1,
+"bookId": 789,
+"bookTitle": "Sample Book 1",
+"quantity": 2
+},
+{
+"id": 2,
+"bookId": 790,
+"bookTitle": "Sample Book 2",
+"quantity": 1
+}
+]
+}
+
+POST: /api/cart (Add book to the shopping cart)
+Example of request body:
+{
+"bookId": 2,
+"quantity": 5
+}
+
+PUT: /api/cart/items/{cartItemId} (Update quantity of a book in the shopping cart)
+Example of request body:
+{
+"quantity": 10
+}
+
+DELETE: /api/cart/items/{cartItemId} (Remove a book from the shopping cart)

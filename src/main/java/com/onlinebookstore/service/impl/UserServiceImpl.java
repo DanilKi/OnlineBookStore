@@ -8,6 +8,7 @@ import com.onlinebookstore.model.RoleName;
 import com.onlinebookstore.model.User;
 import com.onlinebookstore.repository.role.RoleRepository;
 import com.onlinebookstore.repository.user.UserRepository;
+import com.onlinebookstore.service.ShoppingCartService;
 import com.onlinebookstore.service.UserService;
 import jakarta.persistence.EntityNotFoundException;
 import java.util.Set;
@@ -22,6 +23,7 @@ public class UserServiceImpl implements UserService {
     private final UserMapper userMapper;
     private final PasswordEncoder passwordEncoder;
     private final RoleRepository roleRepository;
+    private final ShoppingCartService shoppingCartService;
 
     @Override
     public UserResponseDto register(UserRegistrationRequestDto requestDto)
@@ -36,6 +38,7 @@ public class UserServiceImpl implements UserService {
                         + RoleName.USER))));
         newUser.setPassword(passwordEncoder.encode(requestDto.getPassword()));
         userRepository.save(newUser);
+        shoppingCartService.registerShoppingCart(newUser);
         return userMapper.toUserResponseDto(newUser);
     }
 }
