@@ -13,6 +13,7 @@ import com.onlinebookstore.repository.shoppingcart.ShoppingCartRepository;
 import com.onlinebookstore.service.ShoppingCartService;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -38,6 +39,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         return shoppingCartMapper.toShoppingCartDto(shoppingCart);
     }
 
+    @Transactional
     @Override
     public ShoppingCartDto addCartItem(CreateCartItemRequestDto requestDto, String userName) {
         if (!bookRepository.existsById(requestDto.getBookId())) {
@@ -56,6 +58,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         return shoppingCartMapper.toShoppingCartDto(getShoppingCart(userName));
     }
 
+    @Transactional
     @Override
     public ShoppingCartDto updateCartItemById(Long cartItemId, CreateCartItemRequestDto requestDto,
                                               String userName) {
@@ -66,6 +69,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         return shoppingCartMapper.toShoppingCartDto(getShoppingCart(userName));
     }
 
+    @Transactional
     @Override
     public void removeCartItemById(Long cartItemId, String userName) {
         ShoppingCart shoppingCart = getShoppingCart(userName);
