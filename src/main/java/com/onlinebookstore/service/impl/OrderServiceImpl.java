@@ -11,7 +11,6 @@ import com.onlinebookstore.model.Order;
 import com.onlinebookstore.model.OrderItem;
 import com.onlinebookstore.model.RoleName;
 import com.onlinebookstore.model.ShoppingCart;
-import com.onlinebookstore.model.Status;
 import com.onlinebookstore.model.User;
 import com.onlinebookstore.repository.order.OrderItemRepository;
 import com.onlinebookstore.repository.order.OrderRepository;
@@ -21,7 +20,6 @@ import com.onlinebookstore.service.UserService;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
@@ -52,8 +50,6 @@ public class OrderServiceImpl implements OrderService {
             order.setShippingAddress(shoppingCart.getUser().getShippingAddress());
         }
         order.setUser(shoppingCart.getUser());
-        order.setStatus(Status.PENDING);
-        order.setOrderDate(LocalDateTime.now());
         order.setOrderItems(shoppingCart.getCartItems().stream()
                 .map(orderItemMapper::toOrderItemEntity)
                 .collect(Collectors.toSet()));
