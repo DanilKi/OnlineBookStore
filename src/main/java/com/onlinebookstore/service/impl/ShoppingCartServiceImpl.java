@@ -77,7 +77,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         cartItemRepository.delete(cartItem);
     }
 
-    private ShoppingCart getShoppingCart(String userName) {
+    public ShoppingCart getShoppingCart(String userName) {
         return shoppingCartRepository.findByUserEmail(userName).orElseThrow(
                 () -> new EntityNotFoundException("Can't find shopping cart for user: " + userName)
         );

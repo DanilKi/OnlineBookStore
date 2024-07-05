@@ -215,3 +215,83 @@ Example of request body:
 }
 
 DELETE: /api/cart/items/{cartItemId} (Remove a book from the shopping cart)
+
+Order Endpoints:
+
+POST: /api/orders (Place an order) 
+Example of request body:
+{
+"shippingAddress": "Kyiv, Shevchenko ave, 1"
+}
+
+GET: /api/orders (Retrieve user's order history)
+Example of response body:
+[
+{
+"id": 101,
+"userId": 456,
+"orderItems": [
+{
+"id": 1,
+"bookId": 789,
+"quantity": 2
+},
+{
+"id": 2,
+"bookId": 790,
+"quantity": 1
+}
+],
+"orderDate": "2023-07-25T10:15:30",
+"total": 29.98,
+"status": "COMPLETED"
+},
+{
+"id": 102,
+"userId": 456,
+"orderItems": [
+{
+"id": 3,
+"bookId": 791,
+"quantity": 1
+}
+],
+"orderDate": "2023-07-23T15:20:45",
+"total": 14.99,
+"status": "PENDING"
+}
+]
+
+PATCH: /api/orders/{id} (Update order status) 
+Example of request body:
+{
+"status": "DELIVERED"
+}
+
+OrderItem Endpoints: 
+
+GET: /api/orders/{orderId}/items (Retrieve all OrderItems for a specific order)
+Example of response body:
+[
+{
+"id": 1,
+"bookId": 789,
+"quantity": 2
+},
+{
+"id": 2,
+"bookId": 790,
+"quantity": 1
+}
+]
+
+GET: /api/orders/{orderId}/items/{itemId} (Retrieve a specific OrderItem within an order)
+Example of response body:
+{
+"id": 2,
+"bookId": 790,
+"quantity": 1
+}
+
+POST, PUT, and DELETE endpoints for OrderItem may not be necessary, as OrderItems are typically created, updated, 
+or removed when a user interacts with their shopping cart or places an order.
