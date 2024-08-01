@@ -185,8 +185,7 @@ class CategoryControllerTest {
     void deleteCategory_CategoryWithIdAvailable_ReturnsNoContentStatus() throws Exception {
         Long categoryId = 3L;
 
-        mockMvc.perform(delete(API_URL + "/{id}", categoryId))
-                .andExpect(status().isNoContent());
+        mockMvc.perform(delete(API_URL + "/{id}", categoryId)).andExpect(status().isNoContent());
     }
 
     @Test
