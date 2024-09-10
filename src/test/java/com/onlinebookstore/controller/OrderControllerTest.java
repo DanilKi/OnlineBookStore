@@ -151,6 +151,7 @@ class OrderControllerTest {
         assertNotNull(actual);
         assertFalse(actual.isEmpty());
         assertEquals(expected.size(), actual.size());
+        actual.get(0).orderItems().sort(Comparator.comparingLong(OrderItemDto::id));
         assertIterableEquals(expected, actual);
         assertTrue(EqualsBuilder.reflectionEquals(expected.get(0), actual.get(0)));
     }
